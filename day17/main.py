@@ -1,24 +1,17 @@
-# class User:
-#
-#     #pass #just skipng atributs
-#     def __init__(self, id_user, name_user, year_user):
-#         self.id = id_user
-#         self.name = name_user
-#         self.age = year_user
-#         self.followers = 0
-#         self.following = 0
-#     def follow(self, user):
-#         user.followers += 1
-#         user.following += 1
-#
-#
-# user1 = User("12534", "Jack", "25")
-# user2 = User("25879", "Anna", "21")
-#
-#
-# user1.follow(user2)
-# print(user1.followers)
-# print(user1.following)
-# print(user2.followers)
-# print(user2.following)
+from data import question_data
+from question_model import Question
+from quiz_brain import QuizBrain
 
+question_bank = []
+for question in question_data:
+        question_text = question["text"]
+        question_answer = question["answer"]
+        new_question = Question(question_text, question_answer)
+        question_bank.append(new_question)
+
+quiz = QuizBrain(question_bank)
+
+while quiz.still_has_question():
+        quiz.next_question()
+print("You have completed the quiz")
+print(f"Your final score {quiz.score}/{quiz.question_number}")
