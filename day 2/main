@@ -1,0 +1,43 @@
+#print("charlee"[2])
+# two_digit_number = input("type of two dogit ")
+#
+# first_digit = int(two_digit_number[0])
+# second_digit = int(two_digit_number[1])
+#
+# result=first_digit + second_digit
+# print(result)
+# result = 3 + 3 * 3 / 3 - 3
+# print(result)
+# hight = input("your hight ")
+# weight = input("your weight ")
+#
+# bmi = int(weight) / (float(hight) **2)
+# print(int(bmi))
+# score = 5
+#
+# print("your score " + str(score))
+# score = 0
+# height = 2
+# isWinning = True
+# # f-String
+# print(f"your score is {score}, your height is {height}, you are winning {isWinning}")
+
+# age = input("What is your current age ")
+#
+#
+# age_as = int(age)
+#
+# year = 90 - age_as
+# days = year * 365
+# week = year * 52
+# month = year *12
+#
+# print(f"days {days} weeks {week} month {month}")
+print("Welcom to my calculator $$$")
+bill = float(input("What was total bill "))
+tip = int(input("How much tip would you like to give ? 10, 12, 15 "))
+people = int (input("How many people to split ? "))
+bill_whith_tip = tip / 100 * bill + bill
+bill_per_person = bill_whith_tip / people
+total = round(bill_per_person, 2)
+print(f"Each person pay {total} $")
