@@ -1,57 +1,30 @@
-#from turtle import *
-import turtle as t
+#import colorgram
+import turtle as turtle_module
 import random
+turtle_module.colormode(255)
+tim = turtle_module.Turtle()
 
-tim = t.Turtle()
-
-# colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "LightSeaGreen", "wheat"]
-# t.colormode(255)
 #
-# # def draw_shape(num_sides):
-# #     pit = 360 / num_sides
-# #     for _ in range(num_sides):
-# #         tim.forward(100)
-# #         tim.right(pit)
-# #
-# # for shape_side_n in range(3, 11):
-# #     draw_shape(shape_side_n)
+# rgb_colors = []
+# colors = colorgram.extract('image.jpg', 30)
+# print(colors)
+# for color in colors:
+#     rgb_colors.append(color.rgb)
 #
-# def random_color():
-#     r = random.randint(0, 255)
-#     g = random.randint(0, 255)
-#     b = random.randint(0, 255)
-#     random_color = (r, g, b)
-#     return random_color
-#
-# direction = [0, 90, 180, 270]
-# tim.pensize(15)
-# tim.speed("fastest")
-#
-#
-# for _ in range(2000):
-#     tim.color(random_color())
-#     tim.forward(30)
-#     tim.setheading(random.choice(direction))
+# print(rgb_colors)
+color_list = [(245, 243, 238), (246, 242, 244), (202, 164, 110), (240, 245, 241), (236, 239, 243), (149, 75, 50), (222, 201, 136), (53, 93, 123), (170, 154, 41), (138, 31, 20), (134, 163, 184)]
 
-#Circle
+tim.setheading(225)
+tim.forward(300)
+tim.setheading(0)
+number_of_dots = 100
 
-t.colormode(255)
+for dot_count in range(1, number_of_dots):
+    tim.dot(20, random.choice(color_list))
+    tim.forward(50)
 
-def random_color():
-     r = random.randint(0, 255)
-     g = random.randint(0, 255)
-     b = random.randint(0, 255)
-     random_color = (r, g, b)
-     return random_color
-
-tim.speed("fastest")
-
-def draw_spiograph(size_of_gap):
-    for _ in range(int(360/size_of_gap)):
-        tim.color(random_color())
-        tim.circle(100)
-        tim.setheading(tim.heading() + 10)
-draw_spiograph(5)
-
-screen = t.Screen()
-screen.exitonclick()
+    tim.setheading(90)
+    tim.forward(50)
+    tim.setheading(180)
+    tim.forward(500)
+    tim.setheading(0)
