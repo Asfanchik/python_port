@@ -1,0 +1,46 @@
+# import smtplib
+#
+# my_email = "appbreweryinfo@gmail.com"
+# password = "abcd1234()"
+#
+# with smtplib.SMTP("smtp.gmail.com") as connection:
+#     connection.starttls()
+#     connection.login(user=my_email, password=password)
+#     connection.sendmail(
+#         from_addr=my_email,
+#         to_addrs="appbrewerytesting@yahoo.com",
+#         msg="Hello")
+
+# import datetime as dt
+#
+# now = dt.datetime.now()
+# year = now.year
+# month = now.month
+# week = now.weekday()
+# print(week)
+# date_of_birthday = dt.datetime(year= 2002, month=3, day=16)
+# print(date_of_birthday)
+
+import smtplib
+import datetime as dt
+import random
+
+MY_EMAIL = "appbreweryinfo@gmail.com"
+MY_PASSWORD = "abcd1234()"
+
+now = dt.datetime.now()
+weekday = now.weekday()
+if weekday == 6:
+    with open("quotes.txt") as quote_file:
+        all_quotes = quote_file.readlines()
+        quote = random.choice(all_quotes)
+
+    print(quote)
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        x=connection.sendmail(
+            from_addr=MY_EMAIL,
+            to_addrs=MY_EMAIL,
+            msg=f"Subject:Monday Motivation\n\n{quote}"
+        )
